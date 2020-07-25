@@ -1,27 +1,27 @@
 module.exports = function addPolynomials(
-  firstPolynomial: number[][],
-  secondPolynomial: number[][]
+  firstPolynomialToBeAdded: number[][],
+  secondPolynomialToBeAdded: number[][]
 ): number[][] {
-  const myMap = new Map(firstPolynomial);
+  const polynomial = new Map(firstPolynomialToBeAdded);
 
-  secondPolynomial.reduce(
+  secondPolynomialToBeAdded.reduce(
     (previousValue: any, [exponent, coefficient]: number[]) => {
-      const currentValueOfMap: number = myMap.get(exponent);
+      const currentTermsCoefficient: number = polynomial.get(exponent);
 
-      if (currentValueOfMap === undefined) {
-        myMap.set(exponent, coefficient);
+      if (currentTermsCoefficient === undefined) {
+        polynomial.set(exponent, coefficient);
       } else {
-        myMap.set(exponent, coefficient + currentValueOfMap);
+        polynomial.set(exponent, coefficient + currentTermsCoefficient);
       }
     },
     0
   );
 
-  const result: number[][] = Array.from(myMap);
+  const outputPolynomial: number[][] = Array.from(polynomial);
 
-  result.sort((a: number[], b: number[]) => {
-    return a[0] - b[0];
+  outputPolynomial.sort((term: number[], nextTerm: number[]) => {
+    return term[0] - nextTerm[0];
   });
 
-  return result;
+  return outputPolynomial;
 };

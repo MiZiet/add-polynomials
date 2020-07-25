@@ -1,5 +1,7 @@
 # hello,
 
+stack: TypeScript + Mocha;
+
 Scripts:
 
 - 'npm install' - installs node packages,
@@ -16,4 +18,6 @@ will be written as [ [0, 3], [2, 2] ]
 output format:  
 [ [exponent, coefficient], [exponent, coefficient], ... ]
 
-Output polynomials terms are sorted by the smallest exponent value.
+Output polynomials terms are sorted by the smallest exponent value.  
+  
+for running this app you will probably need: vsc, node, npm and typescript installed
